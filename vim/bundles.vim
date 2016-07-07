@@ -25,6 +25,8 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'kien/ctrlp.vim'
 Plugin 'bling/vim-airline'
 
+Plugin 'editorconfig/editorconfig-vim'
+
 if executable('ack') || executable('ack-grep')
   Plugin 'mileszs/ack.vim'
 endif
@@ -55,6 +57,6 @@ Plugin 'tpope/vim-markdown'
 Plugin 'mustache/vim-mustache-handlebars'
 
 Plugin 'jimenezrick/vimerl'
-Plugin 'copenhas/vim-elixir'
+Plugin 'elixir-lang/vim-elixir'
 
 Plugin 'wting/rust.vim'

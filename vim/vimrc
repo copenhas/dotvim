@@ -115,7 +115,7 @@ let NERDTreeIgnore=['\.pyc', '\.beam', '\.o', '\~$', '\.swo$', '\.swp$', '\.git'
 map <leader>c :TagbarOpenAutoClose<cr>
 
 let g:ctrlp_custom_ignore = { 
-    \ 'dir':  'obj$\|build$\|ebin$\|\.git$\|\.hg$\|\.svn$', 
+    \ 'dir':  'obj$\|build$\|ebin$\|\.git$\|\.hg$\|\.svn$\|deps\|node_modules', 
     \ 'file': '\.beam$\|\.exe$\|\.so$\|\.dll$\|\.o$' }
 
 
@@ -150,3 +150,5 @@ let g:UltiSnipsJumpForwardTrigger='<c-j>'
 let g:UltiSnipsJumpBackwardTrigger='<c-k>'
 
 let g:ack_use_dispatch=1
+
+let g:syntastic_javascript_checkers = ['eslint']
