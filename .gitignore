@@ -2,6 +2,6 @@
 *.swp
 *.swo
 .netrwhist
-vim/bundle/
+vim/plugins/
 *.log
 .DS_Store

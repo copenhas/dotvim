@@ -1,1 +1,0 @@
-/Users/copenhas/.vim/vimrc

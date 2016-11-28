@@ -1,22 +1,17 @@
 set nocompatible
 
-if has('win32') || has('win64')
-    set runtimepath=$HOME/.vim,$VIMRUNTIME,$HOME/.vim/after
-endif
-
 set background=dark
 
-" Bundles {
+" Plugins {
 
-    source ~/.vim/bundles.vim
+    source ~/.vim/plugins.vim
 
 " }
 
 
 " System {
 
-    autocmd bufwritepost .vimrc source $MYVIMRC
-    autocmd bufwritepost vimrc source $MYVIMRC
+    autocmd bufwritepost $MYVIMRC source $MYVIMRC
 
     filetype on
     filetype plugin on
@@ -25,8 +20,6 @@ set background=dark
 
     set history=1000
     set tags=./tags;/,~/.vimtags
-
-    nnoremap <leader>b :Make<cr>
 
 " }
 
@@ -83,72 +76,21 @@ set background=dark
     set showmode
     set number
 
-    set laststatus=2
-
-    if has('gui_running')
-        set lines=50 columns=95
-    else
-        if &term == 'xterm' || &term == 'screen'
-            set t_Co=256
-        endif
-    endif
-
-    if has("gui_macvim")
-          set guifont=Menlo
-      elseif has("gui_running")
-        set guifont=Consolas
-    endif
-
-    set guioptions-=m
-    set guioptions-=T
-    set guioptions-=r
-    set guioptions-=R
-    set guioptions-=l
-    set guioptions-=L
+    set laststatus=2 " always show the status line
 
 " }
 
+" Plugin Settings {
 
-map <leader>f :NERDTreeToggle<cr>
-let NERDTreeIgnore=['\.pyc', '\.beam', '\.o', '\~$', '\.swo$', '\.swp$', '\.git', '\.hg', '\.svn', '\.bzr']
+  let g:airline_theme='molokai'
 
-map <leader>c :TagbarOpenAutoClose<cr>
+  map <leader>f :NERDTreeToggle<cr>
+  let NERDTreeIgnore=['\.pyc', '\.beam', '\.o', '\~$', '\.swo$', '\.swp$', '\.git', '\.hg', '\.svn', '\.bzr']
 
-let g:ctrlp_custom_ignore = { 
-    \ 'dir':  'obj$\|build$\|ebin$\|\.git$\|\.hg$\|\.svn$\|deps\|node_modules', 
-    \ 'file': '\.beam$\|\.exe$\|\.so$\|\.dll$\|\.o$' }
+  let g:ctrlp_custom_ignore = { 
+      \ 'dir':  'obj$\|build$\|ebin$\|\.git$\|\.hg$\|\.svn$\|deps\|node_modules', 
+      \ 'file': '\.beam$\|\.exe$\|\.so$\|\.dll$\|\.o$' }
 
+  let g:airline_powerline_fonts = 1
 
-let g:rbpt_colorpairs = [
-    \ ['black',       'SeaGreen3'],
-    \ ['brown',       'RoyalBlue3'],
-    \ ['Darkblue',    'SeaGreen3'],
-    \ ['darkgray',    'DarkOrchid3'],
-    \ ['darkgreen',   'firebrick3'],
-    \ ['darkcyan',    'RoyalBlue3'],
-    \ ['darkred',     'SeaGreen3'],
-    \ ['darkmagenta', 'DarkOrchid3'],
-    \ ['brown',       'firebrick3'],
-    \ ['gray',        'RoyalBlue3'],
-    \ ['darkmagenta', 'DarkOrchid3'],
-    \ ['Darkblue',    'firebrick3'],
-    \ ['darkgreen',   'RoyalBlue3'],
-    \ ['darkcyan',    'SeaGreen3'],
-    \ ['darkred',     'DarkOrchid3'],
-    \ ['red',         'firebrick3'],
-    \ ]
-
-au VimEnter * RainbowParenthesesToggle
-au Syntax * RainbowParenthesesLoadRound
-au Syntax * RainbowParenthesesLoadSquare
-au Syntax * RainbowParenthesesLoadBraces
-au Syntax * RainbowParenthesesLoadChevrons
-
-
-let g:UltiSnipsExpandTrigger='<c-e>'
-let g:UltiSnipsJumpForwardTrigger='<c-j>'
-let g:UltiSnipsJumpBackwardTrigger='<c-k>'
-
-let g:ack_use_dispatch=1
-
-let g:syntastic_javascript_checkers = ['eslint']
+" }
